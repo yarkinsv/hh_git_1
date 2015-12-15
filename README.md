@@ -2,7 +2,7 @@
 
 ##### 01. create repo (repo A)
 ```
-~/hh_git_1$ git init repoA
+~/hh_git_1$ git clone https://github.com/yarkinsv/repoA.git repoA
 ```
 ##### 02. repo A: create 1st commit with some files (file A, file B)
 ```
@@ -23,6 +23,7 @@
 ```
 ~/hh_git_1/repoB$ git checkout branch1
 ~/hh_git_1/repoB$ nano C.txt
+~/hh_git_1/repoB$ git add .
 ~/hh_git_1/repoB$ git commit -m "Added file C.txt (repo B 2nd commit)"
 ```
 ##### 06. repo B: push changes to repo A
@@ -52,9 +53,17 @@
 ```
 ##### 11. repo A: add repoB as new remote
 ```
-~/hh_git_1/repoA$ git remote add origin ../repoB
+~/hh_git_1/repoA$ git remote add repoB ../repoB
 ```
 ##### 12. repo A, branch1: merge in repoB's branch1
 ```
-~/hh_git_1/repoA$ git pull origin branch1
+~/hh_git_1/repoA$ git pull repoB branch1
+```
+##### push repos to github
+```
+~/hh_git_1/repoA$ git push origin master
+~/hh_git_1/repoA$ git push origin branch1
+~/hh_git_1/repoB$ git remote add github https://github.com/yarkinsv/repoB.git
+~/hh_git_1/repoB$ git push github master
+~/hh_git_1/repoB$ git push github branch1
 ```
